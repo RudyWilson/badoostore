@@ -7,17 +7,23 @@
 <table style="border: 1px solid; width: 500px; text-align:center">
     <thead style="background:#fcf">
     <tr>
+        <th>ID</th>
         <th>Name</th>
         <th>Age</th>
         <th>Photo count</th>
+        <th>ONLINE_STATUS_TEXT</th>
+        <th>PROFILE_PHOTO</th>
     </tr>
     </thead>
     <tbody>
     <c:forEach items="${accounts}" var="account">
         <tr>
-            <td><c:out value="${account.name}"/></td>
-            <td><c:out value="${account.age}"/></td>
-            <td><c:out value="${account.id}"/></td>
+            <td>${account.id}</td>
+            <td>${account.name}</td>
+            <td>${account.age}</td>
+            <td>${account.photoCount}</td>
+            <td>${account.onlineStatusText}</td>
+            <td><img src="http:${account.profilePhoto}" height="300"/></td>
         </tr>
     </c:forEach>
     </tbody>

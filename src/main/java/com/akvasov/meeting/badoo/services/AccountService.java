@@ -1,31 +1,17 @@
 package com.akvasov.meeting.badoo.services;
 
-import com.akvasov.meeting.badoo.model.domain.Account;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-import javax.annotation.Resource;
-import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 /**
- * Created by alex on 27.07.15.
+ * Created by alex on 29.07.15.
  */
-@Service("accountService")
-@Transactional
-public class AccountService {
+public interface AccountService {
 
-    @Resource(name="sessionFactory")
-    private SessionFactory sessionFactory;
+    void update(Integer offset, Integer count);
 
-    public List<Account> getAll() {
-        Session session = sessionFactory.getCurrentSession();
+    Integer processAccounts(JSONArray users);
 
-        Query query = session.createQuery("FROM  Account");
-
-        return query.list();
-    }
+    Boolean processAccount(JSONObject user);
 
 }
